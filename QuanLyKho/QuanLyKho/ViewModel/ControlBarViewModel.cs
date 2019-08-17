@@ -16,15 +16,14 @@ namespace QuanLyKho.ViewModel
         #endregion
         public ControlBarViewModel()
         {
-            closeWindowCommand = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
-                getUserParent(p);
+            closeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, 
+                (p) => { getUserParent(p);
                 var w = closeWindowCommand as Window;
                 if (w != null)
                 {
                     w.Close();
                 }
             });
-            
         }
 
         private FrameworkElement getUserParent(UserControl p)
