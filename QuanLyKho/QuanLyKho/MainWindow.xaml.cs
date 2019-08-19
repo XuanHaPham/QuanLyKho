@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKho.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace QuanLyKho
         public MainWindow()
         {
             InitializeComponent();
+            var mainVM = new MainViewModel();
+            this.DataContext = mainVM;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -31,8 +31,8 @@
         <Grid Grid.Row="0">
             <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" Loaded="ControlBarUC_Loaded"></uc:ControlBarUC>
         </Grid>
-        <materialDesign:Card Width="330" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="28,66,42,84">
-            <Grid>
+        <materialDesign:Card Width="330" Height="150" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Grid >
                 <Grid.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="Margin" Value="15 0 15 0"></Setter>
@@ -58,10 +58,12 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="0"    
+                    <Button Grid.Column="0" 
+                            Command="{Binding LoginIcommand}"
+                            CommandParameter="{Binding ElementName=loginWindow}"
                             Style="{StaticResource MaterialDesignRaisedButton}"    
                             Width="110"    
-                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập"></Button>
+                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập" Click="Button_Click"></Button>
                     <Button Grid.Column="1"    
                             Style="{StaticResource MaterialDesignRaisedButton}"    
                             Width="110"    
