@@ -12,24 +12,49 @@ namespace QuanLyKho.ViewModel
     public class ControlBarViewModel: BaseViewModel
     {
         #region command
-        public ICommand closeWindowCommand { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
+        public ICommand MaximizeWindowCommand { get; set; }
+        public ICommand MinimizeWindowCommand { get; set; }
+        public ICommand MouseMoveWindowCommand { get; set; }
         #endregion
         public ControlBarViewModel()
         {
-            closeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, 
-                (p) => { getUserParent(p);
-                var w = closeWindowCommand as Window;
+            CloseWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, 
+                (p) => {
+                var w = getUserParent(p) as Window;
                 if (w != null)
                 {
                     w.Close();
                 }
             });
+            MaximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; },
+               (p) => {
+                   var w = getUserParent(p) as Window;
+                   if (w != null)
+                   {
+                       if (w.WindowState != WindowState.Maximized)
+                           w.WindowState = WindowState.Maximized;
+                       else
+                           w.WindowState = WindowState.Normal;
+                   }
+               });
+            MinimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; },
+               (p) => {
+                   var w = getUserParent(p) as Window;
+                   if (w != null)
+                   {
+                       if (w.WindowState != WindowState.Minimized)
+                           w.WindowState = WindowState.Minimized;
+                       else
+                           w.WindowState = WindowState.Normal;
+                   }
+               });
         }
 
         private FrameworkElement getUserParent(UserControl p)
         {
             FrameworkElement parent = p;
-            while(parent != null)
+            while(parent.Parent != null)
             {
                 parent = parent.Parent as FrameworkElement;
             }
