@@ -45,11 +45,13 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                             Text="{Binding Username}"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </Grid>
                 <Grid Grid.Row="1">
                     <PasswordBox x:Name="FloatingPasswordBox"
                                  materialDesign:HintAssist.Hint="Mật khẩu"
+                                 
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 </Grid>
                 <Grid Grid.Row="2">
