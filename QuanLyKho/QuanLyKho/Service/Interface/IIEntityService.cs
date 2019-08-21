@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyKho.Service.Interface
 {
-    public interface IEntityService<T> where T : BaseEntity
+    public interface IEntityService<T>
     {
         T Create(T entity, bool withoutCommit = false);
         IEnumerable<T> GetAll();

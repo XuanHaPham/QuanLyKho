@@ -14,9 +14,9 @@ namespace QuanLyKho.Repository.Implement
 
         public bool checkLogin(string username, string password)
         {
-            var account = DataProvider.ins.DB.Users.Where(u => u.UserName == username && u.Password == password).FirstOrDefault();
-            if (account == null)
-                return false;
+            //var account = DataProvider.ins.DB.Users.Where(u => u.UserName == username && u.Password == password).FirstOrDefault();
+            //if (account == null)
+            //    return false;
             return true;
         }
     }

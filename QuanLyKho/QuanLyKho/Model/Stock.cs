@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace QuanLyKho.Model
 {
-    public interface IEntity<T>
+    public class Stock
     {
-        T Id { get; set; }
+        public Object Object { get; set; }
+        public int STT { get; set; }
+        public int Count { get; set; }
     }
 }

@@ -19,14 +19,11 @@ namespace QuanLyKho.Model
                 }
                 return _ins;
             }
-            set
-            {
-                _ins = value;
-            }
         }
-        public QuanLyKhoData DB { get; set; }
-        private DataProvider(){
-            DB = new QuanLyKhoData();
-            }
+        public QuanLyKhoEntities1 DB { get; set; }
+        private DataProvider()
+        {
+            DB = new QuanLyKhoEntities1();
+        }
     }
 }

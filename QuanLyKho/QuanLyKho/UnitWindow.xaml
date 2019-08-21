@@ -16,6 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
         WindowStyle="None"
+        x:Name="window"
         WindowStartupLocation="CenterScreen"
         Title="Đơn vị đo" Height="450" Width="400">
     <Grid>
@@ -34,7 +35,7 @@
             </Grid.RowDefinitions>
             <materialDesign:Card Grid.Row="0" Margin="5">
                 <Grid>
-                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" materialDesign:HintAssist.Hint="Tên đơn vị đo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="1" Margin="5" Height="50">
@@ -44,20 +45,18 @@
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" ToolTip="Thêm " Margin="20,8,69,10" HorizontalAlignment="Center" Grid.ColumnSpan="3">
-                        <TextBlock Text="Thêm" HorizontalAlignment="Center"></TextBlock>
-                    </Button>
-                    <Button Grid.Column="2" ToolTip="Xóa " Margin="64,8,-36,10">
+                    <Button Grid.Column="0" Command="{Binding AddUnitCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Grid.Column="1"  Margin="64,8,-36,10">
                         <TextBlock Text="Xóa" HorizontalAlignment="Center"></TextBlock>
                     </Button>
-                    <Button Grid.Column="2" ToolTip="Sửa " Margin="174,8,-174,10">
+                    <Button Grid.Column="2"  Margin="111,10,-111,8">
                         <TextBlock Text="Sửa" HorizontalAlignment="Center"></TextBlock>
                     </Button>
                 </Grid>
             </materialDesign:Card>
             <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" >
-                    <ListView >
+                    <ListView ItemsSource="{Binding UnitList}"  SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"></GridViewColumn>

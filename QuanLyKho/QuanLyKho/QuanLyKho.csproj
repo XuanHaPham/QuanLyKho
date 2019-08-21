@@ -205,21 +205,56 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Infrastructure\DataProvider.cs" />
-    <Compile Include="Model\Infrastructure\Entity.cs" />
-    <Compile Include="Model\Infrastructure\IEntity.cs" />
-    <Compile Include="Model\Input.cs" />
-    <Compile Include="Model\InputInfo.cs" />
-    <Compile Include="Model\Object.cs" />
-    <Compile Include="Model\Output.cs" />
-    <Compile Include="Model\OutputInfo.cs" />
-    <Compile Include="Model\Infrastructure\QuanLyKhoData.cs" />
-    <Compile Include="Model\Suplier.cs" />
-    <Compile Include="Model\sysdiagram.cs" />
-    <Compile Include="Model\Unit.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserRole.cs" />
+    <Compile Include="Model\Customer.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataProvider.cs" />
+    <Compile Include="Model\Input.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\InputInfo.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Object.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Output.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OutputInfo.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyKhoJaneto.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyKhoJaneto.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyKhoJaneto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyKhoJaneto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyKhoJaneto.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Stock.cs" />
+    <Compile Include="Model\Suplier.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Unit.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserRole.cs">
+      <DependentUpon>QuanLyKhoJaneto.tt</DependentUpon>
+    </Compile>
     <Compile Include="OutputWindow.xaml.cs">
       <DependentUpon>OutputWindow.xaml</DependentUpon>
     </Compile>
@@ -227,28 +262,23 @@
       <DependentUpon>ProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repository\Implement\CustomerRepository.cs" />
-    <Compile Include="Repository\Implement\GenericRepository.cs" />
     <Compile Include="Repository\Implement\InputInfoRepository.cs" />
     <Compile Include="Repository\Implement\InputRepository.cs" />
     <Compile Include="Repository\Implement\ObjectRepository.cs" />
     <Compile Include="Repository\Implement\OutputInfoRepository.cs" />
     <Compile Include="Repository\Implement\OutputRepository.cs" />
     <Compile Include="Repository\Implement\SuplierRepository.cs" />
-    <Compile Include="Repository\Implement\UnitOfWork.cs" />
     <Compile Include="Repository\Implement\UnitRepository.cs" />
     <Compile Include="Repository\Interface\ICustomerRepository.cs" />
-    <Compile Include="Repository\Interface\IGenericRepository.cs" />
     <Compile Include="Repository\Interface\IInputInfoRepository.cs" />
     <Compile Include="Repository\Interface\IInputRepository.cs" />
     <Compile Include="Repository\Interface\IObjectRepository.cs" />
     <Compile Include="Repository\Interface\IOutputInfoRepository.cs" />
     <Compile Include="Repository\Interface\IOutputRepository.cs" />
     <Compile Include="Repository\Interface\ISuplierRepository.cs" />
-    <Compile Include="Repository\Interface\IUnitOfWork.cs" />
     <Compile Include="Repository\Interface\IUnitRepository.cs" />
     <Compile Include="Repository\Interface\IUserRepository.cs" />
     <Compile Include="Repository\Implement\UserRepository.cs" />
-    <Compile Include="Service\Implement\EntityService.cs" />
     <Compile Include="Service\Implement\UserService.cs" />
     <Compile Include="Service\Interface\IIEntityService.cs" />
     <Compile Include="Service\Interface\IUserService.cs" />
@@ -265,6 +295,7 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\UnitViewModel.cs" />
     <Page Include="CustomerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -332,6 +363,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\QuanLyKhoJaneto.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyKhoJaneto.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\QuanLyKhoJaneto.edmx.diagram">
+      <DependentUpon>QuanLyKhoJaneto.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -341,7 +379,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\QuanLyKhoJaneto.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyKhoJaneto.edmx</DependentUpon>
+      <LastGenOutput>QuanLyKhoJaneto.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\QuanLyKhoJaneto.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyKhoJaneto.edmx</DependentUpon>
+      <LastGenOutput>QuanLyKhoJaneto.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.98.1\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.98.1\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
